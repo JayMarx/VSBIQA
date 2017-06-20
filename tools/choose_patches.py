@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Apr  4 22:02:20 2017
+
+@author: cvpr
+
+Sort and save weighted patches 
+
+"""
+
+import cv2
+import numpy as np
+import os
+
+prewitt_img_path = '../data/Imageset/prewitt_images/'        #path to gradient image
+saliency_img_path = '../data/Imageset/saliency_images/'      #path to saliency image
+file_path = '../patches_weight.txt'
+
+img_name = os.listdir(prewitt_img_path)
+img_name.sort()
+
+f_ptr = open(file_path, 'wt')
+
+for i in img_name:
+    patch_gradient = []
+    patch_saliency = []
+    weight = []    
+    prewitt_img = cv2.imread(prewitt_img_path + i, 0)
+    saliency_img = cv2.imread(saliency_img_path + i[0:6] + '_HC.bmp', 0)
+    height = prewitt_img.shape[0]
+    width = prewitt_img.shape[1]
+    
+    #calculate weight
+    for m in range(height/32):
+        for n in range(width/32):
+            prewitt_img_crop = prewitt_img[m*32:(m+1)*32, n*32:(n+1)*32]
+            saliency_img_crop = saliency_img[m*32:(m+1)*32, n*32:(n+1)*32]
+
+            prewitt_sum = np.sum(prewitt_img_crop)/255
+            patch_gradient.append(prewitt_sum)            
+            
+            saliency_sum = np.sum(saliency_img_crop)/255
+            patch_saliency.append(saliency_sum)
+            
+            patch_weight = [prewitt_sum*0.6+saliency_sum*0.4, m*(width/32)+n]      #[weight, number of patches]
+            weight.append(patch_weight)
+    
+    weight.sort(reverse=True)
+    label = [weight[index][1] for index in range(len(weight))]                     #get patches label
+    
+    #write top 300 patches, delete '[',']' and replace ',' with ' '
+    f_ptr.write('{:s} {:s}\n'.format(i, str(label).strip('[').strip(']').replace(',', '')))           
+    
+f_ptr.close()
+   
+    
+    
+

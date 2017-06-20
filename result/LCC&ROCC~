@@ -1,0 +1,73 @@
+top128 patches train:
+    test:
+        1、5:5,top128 patches
+        PLCC: 0.970863
+        SROCC: 0.958165
+
+        2、6:4,top128
+        PLCC: 0.976869
+        SROCC: 0.965317
+        
+        3、7:3,top128
+        PLCC: 0.974266
+        SROCC: 0.962518
+        
+        4、6:4,4000epoch
+        PLCC: 0.973330
+        SROCC: 0.961576
+        
+        5、6:4,8000epoch,top256
+        PLCC: 0.981164
+        SROCC: 0.970250
+        
+        6、jpg2k
+        PLCC: 0.970789
+        SROCC: 0.950021
+        
+        7、jpeg
+        PLCC: 0.981060
+        SROCC: 0.944421
+        
+        8、wn
+        PLCC: 0.993241
+        SROCC: 0.993360
+        
+        9、gblur
+        PLCC: 0.986459
+        SROCC: 0.976075
+        
+        10、ff
+        PLCC: 0.985871
+        SROCC: 0.963176
+        
+cross dataset experiment:
+Model is trained on LIVE2 and test on CSIQ:
+
+noise:
+PLCC: 0.878237
+SROCC: 0.841173
+
+jpeg:
+PLCC: 0.965446
+SROCC: 0.935390
+
+jpg2k:
+PLCC: 0.930510
+SROCC: 0.924359
+
+blur:
+PLCC: 0.940750
+SROCC: 0.907139
+
+fnoise:
+PLCC: 0.581019
+SROCC: 0.588007
+
+contrast:
+PLCC: 0.322674
+SROCC: 0.268850
+
+all:
+PLCC: 0.751020
+SROCC: 0.637412 
+        

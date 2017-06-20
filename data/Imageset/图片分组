@@ -1,0 +1,2 @@
+split.m:        打乱顺序随机分组
+image_split.py: 在不同的distortion里面按8:2随机分组 

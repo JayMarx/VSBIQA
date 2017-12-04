@@ -1,21 +1,17 @@
-nf:
-python evaluate.py --model ./models/nr_live_patchwise.model --top patchwise --gpu 0 ./image/4.png
+Usage:
+    train:
+    python train.py --gpu 0
 
-fr:
-python evaluate.py --model ./models/fr_live_weighted.model --top weighted --gpu 0 ./image/img13.bmp ./image/img1.bmp	#the first picture is for dectection,the second is for reference
+    test:
+    python demo.py --model ./models/nr_jay_live2.model --gpu 0      ## for all test images
 
-train:
-python train.py --gpu 0
+Data distribution(LIVE):
+    dmos.mat:
+    dmos=[dmos_jpeg2000(1:227) dmos_jpeg(1:233) white_noise(1:174) gaussian_blur(1:174) fast_fading(1:174)]
 
-test:
-python demo.py --model ./models/nr_live_patwise.model --gpu 0 --top patchwise
-
-dmos.mat:
-dmos=[dmos_jpeg2000(1:227) dmos_jpeg(1:233) white_noise(1:174) gaussian_blur(1:174) fast_fading(1:174)]
-
-dmos_jpeg2000(1:227)
-dmos_jpeg(228:460)
-white_noise(461:634)
-gaussian_blur(635:808)
-fast_fading(809:982)
+    dmos_jpeg2000(1:227)
+    dmos_jpeg(228:460)
+    white_noise(461:634)
+    gaussian_blur(635:808)
+    fast_fading(809:982)
 

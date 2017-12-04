@@ -3,13 +3,18 @@ Visual Saliency Based Blind Image Quality Assessnent via Deep Convolutional Neur
 
 This is the implementation of [Visual Saliency Based Blind Image Quality Assessment via Convolutional Neural Network](https://link.springer.com/chapter/10.1007/978-3-319-70136-3_58).
  **VSBIQA** is partly based on the [deepIQA](https://github.com/dmaniry/deepIQA). This work aims to evaluate the given image's quality through deep learning method. The main difference of this work between others' works is that we proposed to use salient image patches to train a designed DL-model, thus making the feature extraction more accuracy and efficient.
+
+### Dependencies
+- [chainer](https://chainer.org/)
+- opencv
+- sklearn
  
 ### Architecture  
 <div align="center">
 	<img src="./img/architecture.png"/>
 </div>
 
-### Heatmap  
+### ROI patches generation  
 <div align="center">
 	<img src="./img/heatmap.png"/>
 </div>
@@ -23,7 +28,7 @@ This is the implementation of [Visual Saliency Based Blind Image Quality Assessm
 	(a): BLIINDS-II; (b)BRISQUE; (c)CORNIA; (d)Ours 
 </div>
 
-### Usage  
+### Usage 
 - data preparation
 In this work, we use **HC** method to calculate salient images. You can find the source code in [MingMingCheng's homepage](http://mmcheng.net/zh/SalObj/).
 We use [LIVE2](http://live.ece.utexas.edu/research/quality/subjective.htm) and [CSIQ](http://vision.eng.shizuoka.ac.jp/mod/page/view.php?id=23) database for training and testing. The file directory should be:
@@ -58,5 +63,3 @@ If you find **VSBIQA** helpful in your research, please consider citing:
  		year={2017},
   		organization={Springer}
 	}
-
-

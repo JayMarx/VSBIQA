@@ -27,10 +27,10 @@ In this work, we use **HC** method to calculate salient images. You can find the
 We use [LIVE2](http://live.ece.utexas.edu/research/quality/subjective.htm) and [CSIQ](http://vision.eng.shizuoka.ac.jp/mod/page/view.php?id=23) database for training and testing. The file directory should be:
 	
 ```python  
-	$VSBIQA/
-	$VSBIQA/data/Imageset/live2/				# live2 dataset
-	$VSBIQA/data/Imageset/prewitt_images/		# gradient images of live2
-	$VSBIQA/data/Imageset/saliency_images/		# salient images
+	VSBIQA/
+	VSBIQA/data/Imageset/live2/				# live2 dataset
+	VSBIQA/data/Imageset/prewitt_images/		# gradient images of live2
+	VSBIQA/data/Imageset/saliency_images/		# salient images
 ```  
 
 - run  
